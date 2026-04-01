@@ -1,0 +1,221 @@
+/* No Shorts. No Excuses. — blocker.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&display=swap');
+
+#__no-shorts-overlay__ {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483647 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #0a0a0a !important;
+  font-family: 'Space Mono', monospace !important;
+  overflow: hidden !important;
+  animation: ns-fade-in 0.3s ease forwards !important;
+}
+
+#__no-shorts-overlay__.ns-exit {
+  animation: ns-fade-out 0.4s ease forwards !important;
+}
+
+@keyframes ns-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ns-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+#__no-shorts-overlay__ .ns-scanlines {
+  position: absolute !important;
+  inset: 0 !important;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.015) 2px,
+    rgba(255,255,255,0.015) 4px
+  ) !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+#__no-shorts-overlay__ .ns-noise {
+  position: absolute !important;
+  inset: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E") !important;
+  opacity: 0.4 !important;
+  animation: ns-noise 0.5s steps(2) infinite !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+@keyframes ns-noise {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, 1%); }
+  50% { transform: translate(1%, -1%); }
+  75% { transform: translate(-1%, 2%); }
+  100% { transform: translate(2%, -2%); }
+}
+
+#__no-shorts-overlay__ .ns-container {
+  position: relative !important;
+  z-index: 10 !important;
+  text-align: center !important;
+  padding: 48px 40px !important;
+  max-width: 560px !important;
+  width: 100% !important;
+}
+
+#__no-shorts-overlay__ .ns-glitch-wrapper {
+  margin-bottom: 24px !important;
+  position: relative !important;
+}
+
+#__no-shorts-overlay__ .ns-icon {
+  font-size: 64px !important;
+  display: inline-block !important;
+  animation: ns-shake 4s ease-in-out infinite !important;
+  filter: drop-shadow(0 0 24px rgba(255, 50, 50, 0.5)) !important;
+}
+
+@keyframes ns-shake {
+  0%, 90%, 100% { transform: rotate(0deg) scale(1); }
+  92% { transform: rotate(-3deg) scale(1.05); }
+  94% { transform: rotate(3deg) scale(1.05); }
+  96% { transform: rotate(-2deg) scale(1.03); }
+  98% { transform: rotate(1deg) scale(1.01); }
+}
+
+#__no-shorts-overlay__ .ns-eyebrow {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 6px !important;
+  color: #ff3232 !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+  opacity: 0.9 !important;
+}
+
+#__no-shorts-overlay__ .ns-title {
+  margin: 0 0 20px !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  line-height: 1 !important;
+  gap: 0 !important;
+}
+
+#__no-shorts-overlay__ .ns-title-line {
+  font-family: 'Bebas Neue', 'Impact', sans-serif !important;
+  font-size: clamp(64px, 12vw, 96px) !important;
+  font-weight: 400 !important;
+  color: #f0f0f0 !important;
+  letter-spacing: 2px !important;
+  line-height: 0.95 !important;
+  display: block !important;
+  text-shadow: 
+    0 0 60px rgba(255, 50, 50, 0.15),
+    2px 2px 0 rgba(255,50,50,0.3) !important;
+}
+
+#__no-shorts-overlay__ .ns-title-line.accent {
+  color: #ff3232 !important;
+  text-shadow:
+    0 0 40px rgba(255, 50, 50, 0.6),
+    -2px -2px 0 rgba(255, 200, 50, 0.2) !important;
+  animation: ns-flicker 6s ease-in-out infinite !important;
+}
+
+@keyframes ns-flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96% { opacity: 0.7; }
+  97% { opacity: 1; }
+  98% { opacity: 0.5; }
+  99% { opacity: 1; }
+}
+
+#__no-shorts-overlay__ .ns-sub {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+  color: #666 !important;
+  margin: 0 0 36px !important;
+  padding: 0 !important;
+}
+
+#__no-shorts-overlay__ .ns-actions {
+  display: flex !important;
+  gap: 12px !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 40px !important;
+}
+
+#__no-shorts-overlay__ .ns-btn-back,
+#__no-shorts-overlay__ .ns-btn-disable {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 12px !important;
+  padding: 14px 24px !important;
+  border-radius: 2px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  border: none !important;
+  outline: none !important;
+}
+
+#__no-shorts-overlay__ .ns-btn-back {
+  background: #ff3232 !important;
+  color: #fff !important;
+  box-shadow: 0 0 24px rgba(255, 50, 50, 0.3), inset 0 1px 0 rgba(255,255,255,0.15) !important;
+}
+
+#__no-shorts-overlay__ .ns-btn-back:hover {
+  background: #ff1a1a !important;
+  box-shadow: 0 0 40px rgba(255, 50, 50, 0.5), inset 0 1px 0 rgba(255,255,255,0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+#__no-shorts-overlay__ .ns-btn-disable {
+  background: transparent !important;
+  color: #444 !important;
+  border: 1px solid #222 !important;
+}
+
+#__no-shorts-overlay__ .ns-btn-disable:hover {
+  color: #888 !important;
+  border-color: #444 !important;
+  background: rgba(255,255,255,0.02) !important;
+}
+
+#__no-shorts-overlay__ .ns-counter-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 4px !important;
+  border-top: 1px solid #1a1a1a !important;
+  padding-top: 24px !important;
+}
+
+#__no-shorts-overlay__ .ns-counter-label {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  color: #333 !important;
+}
+
+#__no-shorts-overlay__ .ns-counter {
+  font-family: 'Bebas Neue', 'Impact', sans-serif !important;
+  font-size: 48px !important;
+  color: #ff3232 !important;
+  line-height: 1 !important;
+  text-shadow: 0 0 30px rgba(255, 50, 50, 0.4) !important;
+}
